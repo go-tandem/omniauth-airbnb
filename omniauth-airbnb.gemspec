@@ -7,12 +7,11 @@ Gem::Specification.new do |spec|
   spec.name          = "omniauth-airbnb"
   spec.version       = Omniauth::Airbnb::VERSION
   spec.authors       = ["Macario"]
-  spec.email         = ["mail@makarius.me"]
+  spec.email         = ["mail@aliada.mx"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
+  spec.summary       = 'Airbnb OAuth2 Strategy for OmniAuth'
+  spec.homepage      = 'https://github.com/aliada-mx/omniauth-airbnb.'
+  spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -26,6 +25,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_runtime_dependency 'omniauth-oauth2', '~> 1.2'
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"

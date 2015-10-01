@@ -1,6 +1,2 @@
 require "omniauth/airbnb/version"
-
-module Omniauth
-  module Airbnb
-  end
-end
+require "omniauth/strategies/airbnb"
