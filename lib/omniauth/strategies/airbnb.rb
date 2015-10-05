@@ -6,7 +6,7 @@ require 'uri'
 module OmniAuth
   module Strategies
     class Airbnb < OmniAuth::Strategies::OAuth2
-      DEFAULT_SCOPE = 'listings_read'
+      DEFAULT_SCOPE = 'basic_profile_read'
 
       option :client_options, {
         :authorize_url => 'https://www.airbnb.com/oauth2/auth',
@@ -17,21 +17,37 @@ module OmniAuth
       option :authorize_options, [:scope]
       option :token_params, :_unwrapped => 'true'
 
-      # You can pass +scope+ params to the auth request, if you need.
-      # You can to set them dynamically also set these options in the.
-      # You can OmniAuth config :authorize_params option.
-      #
-      # For example: /oauth2/auth?scope='reservations_read'
+      uid { user_info['id'] }
+
+      info do
+        {
+          'email'         => user_info['email'],
+          'first_name'    => user_info['first_name'],
+          'last_name'     => user_info['last_name'],
+          'image'         => user_info['picture_url'],
+          'description'   => user_info['about'],
+          'location'      => user_info['location'],
+          'verifications' => user_info['verifications'],
+          'phone'         => user_info['phone']
+        }
+      end
+
+      extra do
+        skip_info?? Hash.new : {'raw_info' => raw_info}
+      end
+
       def authorize_params
         super.tap do |params|
-          %w(scope).each do |v|
-            if request.params[v]
-              params[v.to_sym] = request.params[v]
-            end
-          end
-
-          params[:scope] ||= DEFAULT_SCOPE
+          params[:scope] = request.params['scope'] || DEFAULT_SCOPE
         end
+      end
+
+      def raw_info
+        @raw_info ||= access_token.get('users/me').parsed || {}
+      end
+
+      def user_info
+        @user_info ||= raw_info['user'] || {}
       end
     end
   end
