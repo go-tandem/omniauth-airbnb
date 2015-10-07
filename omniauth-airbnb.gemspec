@@ -5,7 +5,7 @@ require 'omniauth/airbnb/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-airbnb"
-  spec.version       = Omniauth::Airbnb::VERSION
+  spec.version       = OmniAuth::Airbnb::VERSION
   spec.authors       = ["Macario"]
   spec.email         = ["mail@aliada.mx"]
 
