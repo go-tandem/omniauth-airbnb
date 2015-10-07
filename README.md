@@ -1,11 +1,6 @@
-# Omniauth::Airbnb
+# OmniAuth::Airbnb
 
-Welcome to your new gem! In this directory, you'll find the files you
-need to be able to package up your Ruby library into a gem. Put your
-Ruby code in the file `lib/omniauth/airbnb`. To experiment with that
-code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+OmniAuth strategy for Airbnb.
 
 ## Installation
 
@@ -24,6 +19,7 @@ Or install it yourself as:
     $ gem install omniauth-airbnb
 
 ## Usage
+
 
   Rails.application.config.middleware.use OmniAuth::Builder do
     provider :airbnb, ENV['AIRBNB_CLIENT_ID'], ENV['AIRBNB_CLIENT_SECRET'],

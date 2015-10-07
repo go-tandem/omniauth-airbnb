@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Omniauth::Airbnb do
+describe OmniAuth::Airbnb do
   it 'has a version number' do
-    expect(Omniauth::Airbnb::VERSION).not_to be nil
+    expect(OmniAuth::Airbnb::VERSION).not_to be nil
   end
 end
