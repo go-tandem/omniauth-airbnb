@@ -21,10 +21,10 @@ Or install it yourself as:
 ## Usage
 
 
-  Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :airbnb, ENV['AIRBNB_CLIENT_ID'], ENV['AIRBNB_CLIENT_SECRET'],
-    options: { scope: 'basic_profile_read,email_read,reservations_read,listings_read' }
-  end
+    Rails.application.config.middleware.use OmniAuth::Builder do
+      provider :airbnb, ENV['AIRBNB_CLIENT_ID'], ENV['AIRBNB_CLIENT_SECRET'],
+      options: { scope: 'basic_profile_read,email_read,reservations_read,listings_read' }
+    end
 
 
 ## Development
